@@ -95,7 +95,6 @@ void setup() {
 
 void loop() {
   DateTime now = rtc.now();
-  prev_state = dev_state;
 
   wtr_level = ADC_READ(0);
   if (now.second() == 0) {
@@ -163,6 +162,8 @@ void loop() {
     if (dev_state == IDLE || dev_state == RUNNING) load_ht(lcd_buf);
     lcd.clear();
   }
+
+  prev_state = dev_state;
 }
 
 ISR(PCINT0_vect) {
