@@ -45,7 +45,7 @@ This project was built upon the Arduino ATMega 2560 microcontroller. Devices and
 ## Schematic
 Basic schematic layout for the assembled system.
 
-![image](https://user-images.githubusercontent.com/77858921/206936560-267190f2-23aa-4e59-91a5-c63fec3c5a4b.png)
+![image](https://user-images.githubusercontent.com/77858921/206936878-f80d21e6-93ac-4dc4-8dc5-648256d079a4.png)
 
 ## Operation Description
 This system operates within 1 of 4 states. The system can operate in the:
