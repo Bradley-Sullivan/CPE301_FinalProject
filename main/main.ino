@@ -76,7 +76,7 @@ char lcd_buf[LCD_LEN], err_msg[LCD_LEN];
 char state_map[4][16] = {"(DISABLED)", "IDLE", "ERROR", "RUNNING"};
 unsigned char led_mask_map[4] = {YLED_MASK, GLED_MASK, RLED_MASK, BLED_MASK};
 
-const unsigned int temp_threshold = 42, wtr_threshold = 400, max_steps = 200;
+const unsigned int temp_threshold = 80, wtr_threshold = 400, max_steps = 200;
 unsigned int wtr_level = 0, update_timer = 0, step_ct = 0;
 int step_dir = 1;
 
@@ -143,13 +143,11 @@ void loop() {
       break;
   }
 
-  if (dev_state != ERROR) {
-    if (*PIN_B & CTRL_BTN) {
-      unsigned char serial_buf[64];
-      snprintf(serial_buf, 64, "\nVENT POSITION UPDATED\n");
-      UART0_PUTSTR(serial_buf, strlen(serial_buf));
-      step.step(1);
-    }
+  if (*PIN_B & CTRL_BTN) {
+    unsigned char serial_buf[64];
+    snprintf(serial_buf, 64, "\nVENT POSITION UPDATED\n");
+    UART0_PUTSTR(serial_buf, strlen(serial_buf));
+    step.step(1);
   }
 
   if (prev_state != dev_state) {
