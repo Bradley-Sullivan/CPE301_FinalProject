@@ -47,6 +47,12 @@ Basic schematic layout for the assembled system.
 
 ![image](https://user-images.githubusercontent.com/77858921/206936878-f80d21e6-93ac-4dc4-8dc5-648256d079a4.png)
 
+## Operation Demonstration
+
+A link to a video demonstration of the assembled project can be found below:
+
+https://youtu.be/vFcBLB3sc3c
+
 ## Operation Description
 This system operates within 1 of 4 states. The system can operate in the:
 - `DISABLED` State
