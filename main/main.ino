@@ -76,9 +76,8 @@ char lcd_buf[LCD_LEN], err_msg[LCD_LEN];
 char state_map[4][16] = {"(DISABLED)", "IDLE", "ERROR", "RUNNING"};
 unsigned char led_mask_map[4] = {YLED_MASK, GLED_MASK, RLED_MASK, BLED_MASK};
 
-const unsigned int temp_threshold = 80, wtr_threshold = 400, max_steps = 200;
-unsigned int wtr_level = 0, update_timer = 0, step_ct = 0;
-int step_dir = 1;
+const unsigned int temp_threshold = 42, wtr_threshold = 400, max_steps = 200;
+unsigned int wtr_level = 0, update_timer = 0;
 
 void setup() {
   lcd.begin(16, 2);
@@ -173,7 +172,7 @@ ISR(PCINT0_vect) {
     if (dev_state == RUNNING || dev_state == IDLE || dev_state == ERROR) {
       dev_state = DISABLED;
     } else if (dev_state == DISABLED) {
-      dev_state = RUNNING;
+      dev_state = IDLE;
     }
   }
 }
